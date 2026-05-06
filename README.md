@@ -26,80 +26,71 @@ Raizes-do-Nordeste/
 
 
 🚀 Instalação
-Clone o repositório:
 
+1-Clone o repositório:
 bash
 git clone https://github.com/Wendesonsouza/Raizes-do-Nordeste-.git
 cd Raizes-do-Nordeste
-Instale as dependências:
 
+2-Instale as dependências:
 bash
 cd backend
 npm init -y
 npm install express cors jsonwebtoken bcryptjs mongoose
-Configure o banco de dados (MongoDB local ou Atlas).
+
+3-Configure o banco de dados (MongoDB local ou Atlas).
 No arquivo config/db.js coloque sua string de conexão.
 
-Inicie o servidor:
-
+4-Inicie o servidor:
 bash
 node server.js
 
 
 🌐 Uso
 Área do Cliente
-Cadastro e login
 
-Escolher prato de cuscuz (Grande, Médio, Pequeno)
-
-Criar pedido e acompanhar status
+-Cadastro e login
+-Escolher prato de cuscuz (Grande, Médio, Pequeno)
+-Criar pedido e acompanhar status
 
 Área do Admin
-Login com perfil administrador
 
-CRUD de pratos
-
-Controle de estoque
-
-Atualização de status dos pedidos
+-Login com perfil administrador
+-CRUD de pratos
+-Controle de estoque
+-Atualização de status dos pedidos
 
 
 
 📌 Endpoints Principais
-/auth → login, cadastro, refresh
 
-/pratos → listar pratos, criar pedido
-
-/admin → gerenciar cardápio, pedidos, estoque
-
+-/auth → login, cadastro, refresh
+-/pratos → listar pratos, criar pedido
+-/admin → gerenciar cardápio, pedidos, estoque
 
 
 🧪 Testes
-Login válido → retorna token
 
-Pedido válido → cria pedido
-
-Estoque insuficiente → erro 409
-
-Pagamento mock → aprovado ou recusado
+-Login válido → retorna token
+-Pedido válido → cria pedido
+-Estoque insuficiente → erro 409
+-Pagamento mock → aprovado ou recusado
 
 
 
 🎨 Frontend
-cliente.html → interface para clientes
 
-admin.html → interface para administradores
-
-index.html → página inicial
+-cliente.html → interface para clientes
+-admin.html → interface para administradores
+-index.html → página inicial
 
 
 
 🔒 Segurança
-Senhas com bcrypt
 
-Autenticação com JWT
-
-Perfis com roles (cliente/admin)
+-Senhas com bcrypt
+-Autenticação com JWT
+-Perfis com roles (cliente/admin)
 
 
 
