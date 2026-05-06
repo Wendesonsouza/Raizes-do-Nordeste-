@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cliente - Raízes do Nordeste</title>
+  <script src="js/cliente.js"></script>
+</head>
+<body>
+  <h1>Escolha seu Cuscuz</h1>
+  <div id="menu"></div>
+</body>
+</html>
