@@ -1,0 +1,404 @@
+Hoje
+Projeto_Back_End_Wendeson (1).docx
+
+Doc
+
+desenvolva esse projeto p0ra mim pra eu fase umrepositorio no github quero um restaurante que ofereça tres variedade de prato de cuzcuz grande medio e perqueno quero bancosa de dado e aria de adm com loguim   e aria de cliente faza um app tipo para roda em um site com java scripite me de o repositorio completro
+Perfeito, Wendeson! Vamos estruturar o repositório para o Restaurante Raízes do Nordeste com foco em JavaScript (Node.js + Express) para rodar como uma aplicação web simples, com área de cliente e área de administração. Vou te entregar a base completa para você subir no GitHub.
+
+📂 Estrutura do Repositório
+Código
+Raizes-do-Nordeste/
+│── backend/
+│   ├── server.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── pratos.js
+│   │   ├── admin.js
+│   ├── models/
+│   │   ├── usuario.js
+│   │   ├── prato.js
+│   │   ├── pedido.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── pratoController.js
+│   │   ├── pedidoController.js
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── jwt.js
+│   └── package.json
+│
+│── frontend/
+│   ├── index.html
+│   ├── cliente.html
+│   ├── admin.html
+│   ├── js/
+│   │   ├── cliente.js
+│   │   ├── admin.js
+│   └── css/
+│       ├── style.css
+│
+│── README.md
+🍽️ Funcionalidades
+Área do Cliente
+
+Login e cadastro
+
+Escolher prato de cuscuz (grande, médio, pequeno)
+
+Fazer pedido e acompanhar status
+
+Área do Admin
+
+Login com perfil administrador
+
+Gerenciar cardápio (CRUD de pratos)
+
+Ver pedidos e atualizar status
+
+Controle de estoque
+
+Banco de Dados (MongoDB ou SQLite)
+
+Usuários (roles: cliente/admin)
+
+Pratos
+
+Pedidos
+
+Fidelidade (pontos)
+
+🚀 Exemplo de Código
+server.js
+javascript
+const express = require('express');
+const cors = require('cors');
+const authRoutes = require('./routes/auth');
+const pratoRoutes = require('./routes/pratos');
+const adminRoutes = require('./routes/admin');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Rotas
+app.use('/auth', authRoutes);
+app.use('/pratos', pratoRoutes);
+app.use('/admin', adminRoutes);
+
+app.listen(3000, () => {
+  console.log("Servidor rodando na porta 3000 🚀");
+});
+routes/pratos.js
+javascript
+const express = require('express');
+const router = express.Router();
+const pratoController = require('../controllers/pratoController');
+
+// Listar pratos
+router.get('/', pratoController.listarPratos);
+
+// Criar pedido
+router.post('/pedido', pratoController.criarPedido);
+
+module.exports = router;
+controllers/pratoController.js
+javascript
+const pratos = [
+  { id: 1, nome: "Cuscuz Grande", preco: 15 },
+  { id: 2, nome: "Cuscuz Médio", preco: 10 },
+  { id: 3, nome: "Cuscuz Pequeno", preco: 7 }
+];
+
+exports.listarPratos = (req, res) => {
+  res.json(pratos);
+};
+
+exports.criarPedido = (req, res) => {
+  const { pratoId } = req.body;
+  const prato = pratos.find(p => p.id === pratoId);
+  if (!prato) return res.status(404).json({ erro: "Prato não encontrado" });
+  res.status(201).json({ mensagem: "Pedido criado com sucesso", prato });
+};
+🌐 Frontend Simples
+cliente.html
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cliente - Raízes do Nordeste</title>
+  <script src="js/cliente.js"></script>
+</head>
+<body>
+  <h1>Escolha seu Cuscuz</h1>
+  <div id="menu"></div>
+</body>
+</html>
+js/cliente.js
+javascript
+fetch("http://localhost:3000/pratos")
+  .then(res => res.json())
+  .then(data => {
+    const menu = document.getElementById("menu");
+    data.forEach(prato => {
+      const btn = document.createElement("button");
+      btn.innerText = `${prato.nome} - R$${prato.preco}`;
+      btn.onclick = () => fazerPedido(prato.id);
+      menu.appendChild(btn);
+    });
+  });
+
+function fazerPedido(pratoId) {
+  fetch("http://localhost:3000/pratos/pedido", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ pratoId })
+  }).then(res => res.json())
+    .then(data => alert(data.mensagem));
+}
+📌 Próximos Passos
+Crie um repositório no GitHub (você já abriu a aba).
+
+Copie essa estrutura de arquivos para o repositório.
+
+Rode npm init -y e instale dependências:
+
+bash
+npm install express cors jsonwebtoken bcryptjs mongoose
+Suba o projeto com:
+
+bash
+git add .
+git commit -m "Projeto Raízes do Nordeste"
+git push origin main
+Quer que eu já monte um README.md pronto com instruções de instalação e execução para você colar no GitHub?Perfeito, Wendeson! Vamos estruturar o repositório para o Restaurante Raízes do Nordeste com foco em JavaScript (Node.js + Express) para rodar como uma aplicação web simples, com área de cliente e área de administração. Vou te entregar a base completa para você subir no GitHub.
+
+📂 Estrutura do Repositório
+Código
+Raizes-do-Nordeste/
+│── backend/
+│   ├── server.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── pratos.js
+│   │   ├── admin.js
+│   ├── models/
+│   │   ├── usuario.js
+│   │   ├── prato.js
+│   │   ├── pedido.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── pratoController.js
+│   │   ├── pedidoController.js
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── jwt.js
+│   └── package.json
+│
+│── frontend/
+│   ├── index.html
+│   ├── cliente.html
+│   ├── admin.html
+│   ├── js/
+│   │   ├── cliente.js
+│   │   ├── admin.js
+│   └── css/
+│       ├── style.css
+│
+│── README.md
+🍽️ Funcionalidades
+Área do Cliente
+
+Login e cadastro
+
+Escolher prato de cuscuz (grande, médio, pequeno)
+
+Fazer pedido e acompanhar status
+
+Área do Admin
+
+Login com perfil administrador
+
+Gerenciar cardápio (CRUD de pratos)
+
+Ver pedidos e atualizar status
+
+Controle de estoque
+
+Banco de Dados (MongoDB ou SQLite)
+
+Usuários (roles: cliente/admin)
+
+Pratos
+
+Pedidos
+
+Fidelidade (pontos)
+
+🚀 Exemplo de Código
+server.js
+javascript
+const express = require('express');
+const cors = require('cors');
+const authRoutes = require('./routes/auth');
+const pratoRoutes = require('./routes/pratos');
+const adminRoutes = require('./routes/admin');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Rotas
+app.use('/auth', authRoutes);
+app.use('/pratos', pratoRoutes);
+app.use('/admin', adminRoutes);
+
+app.listen(3000, () => {
+  console.log("Servidor rodando na porta 3000 🚀");
+});
+routes/pratos.js
+javascript
+const express = require('express');
+const router = express.Router();
+const pratoController = require('../controllers/pratoController');
+
+// Listar pratos
+router.get('/', pratoController.listarPratos);
+
+// Criar pedido
+router.post('/pedido', pratoController.criarPedido);
+
+module.exports = router;
+controllers/pratoController.js
+javascript
+const pratos = [
+  { id: 1, nome: "Cuscuz Grande", preco: 15 },
+  { id: 2, nome: "Cuscuz Médio", preco: 10 },
+  { id: 3, nome: "Cuscuz Pequeno", preco: 7 }
+];
+
+exports.listarPratos = (req, res) => {
+  res.json(pratos);
+};
+
+exports.criarPedido = (req, res) => {
+  const { pratoId } = req.body;
+  const prato = pratos.find(p => p.id === pratoId);
+  if (!prato) return res.status(404).json({ erro: "Prato não encontrado" });
+  res.status(201).json({ mensagem: "Pedido criado com sucesso", prato });
+};
+🌐 Frontend Simples
+cliente.html
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cliente - Raízes do Nordeste</title>
+  <script src="js/cliente.js"></script>
+</head>
+<body>
+  <h1>Escolha seu Cuscuz</h1>
+  <div id="menu"></div>
+</body>
+</html>
+js/cliente.js
+javascript
+fetch("http://localhost:3000/pratos")
+  .then(res => res.json())
+  .then(data => {
+    const menu = document.getElementById("menu");
+    data.forEach(prato => {
+      const btn = document.createElement("button");
+      btn.innerText = `${prato.nome} - R$${prato.preco}`;
+      btn.onclick = () => fazerPedido(prato.id);
+      menu.appendChild(btn);
+    });
+  });
+
+function fazerPedido(pratoId) {
+  fetch("http://localhost:3000/pratos/pedido", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ pratoId })
+  }).then(res => res.json())
+    .then(data => alert(data.mensagem));
+}
+📌 Próximos Passos
+Crie um repositório no GitHub (você já abriu a aba).
+
+Copie essa estrutura de arquivos para o repositório.
+
+Rode npm init -y e instale dependências:
+
+bash
+npm install express cors jsonwebtoken bcryptjs mongoose
+Suba o projeto com:
+
+bash
+git add .
+git commit -m "Projeto Raízes do Nordeste"
+git push origin main
+Quer que eu já monte um README.md pronto com instruções de instalação e execução para você colar no GitHub?Perfeito, Wendeson! Vamos estruturar o repositório para o Restaurante Raízes do Nordeste com foco em JavaScript (Node.js + Express) para rodar como uma aplicação web simples, com área de cliente e área de administração. Vou te entregar a base completa para você subir no GitHub.
+
+📂 Estrutura do Repositório
+Código
+Raizes-do-Nordeste/
+│── backend/
+│   ├── server.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── pratos.js
+│   │   ├── admin.js
+│   ├── models/
+│   │   ├── usuario.js
+│   │   ├── prato.js
+│   │   ├── pedido.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── pratoController.js
+│   │   ├── pedidoController.js
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── jwt.js
+│   └── package.json
+│
+│── frontend/
+│   ├── index.html
+│   ├── cliente.html
+│   ├── admin.html
+│   ├── js/
+│   │   ├── cliente.js
+│   │   ├── admin.js
+│   └── css/
+│       ├── style.css
+│
+│── README.md
+
+🍽️ Funcionalidades
+Área do Cliente
+
+Login e cadastro
+
+Escolher prato de cuscuz (grande, médio, pequeno)
+
+Fazer pedido e acompanhar status
+
+Área do Admin
+
+Login com perfil administrador
+
+Gerenciar cardápio (CRUD de pratos)
+
+Ver pedidos e atualizar status
+
+Controle de estoque
+
+Banco de Dados (MongoDB ou SQLite)
+
+Usuários (roles: cliente/admin)
+
+Pratos
+
+Pedidos
+
+Fidelidade (pontos)
