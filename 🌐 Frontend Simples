@@ -1,3 +1,5 @@
+#cliente.html
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,3 +11,27 @@
   <div id="menu"></div>
 </body>
 </html>
+
+
+#js/cliente.js
+
+fetch("http://localhost:3000/pratos")
+  .then(res => res.json())
+  .then(data => {
+    const menu = document.getElementById("menu");
+    data.forEach(prato => {
+      const btn = document.createElement("button");
+      btn.innerText = `${prato.nome} - R$${prato.preco}`;
+      btn.onclick = () => fazerPedido(prato.id);
+      menu.appendChild(btn);
+    });
+  });
+
+function fazerPedido(pratoId) {
+  fetch("http://localhost:3000/pratos/pedido", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ pratoId })
+  }).then(res => res.json())
+    .then(data => alert(data.mensagem));
+}
