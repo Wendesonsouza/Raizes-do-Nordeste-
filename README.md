@@ -1,6 +1,8 @@
 🍽️ Restaurante Raízes do Nordeste
 Projeto Back-End e Front-End simples em Node.js + Express + JavaScript para rodar em site, com área de cliente e área de administração.
 
+
+
 📂 Estrutura
 Código
 Raizes-do-Nordeste/
@@ -20,6 +22,9 @@ Raizes-do-Nordeste/
 │   └── css/
 │
 │── README.md
+
+
+
 🚀 Instalação
 Clone o repositório:
 
@@ -39,6 +44,8 @@ Inicie o servidor:
 
 bash
 node server.js
+
+
 🌐 Uso
 Área do Cliente
 Cadastro e login
@@ -56,12 +63,16 @@ Controle de estoque
 
 Atualização de status dos pedidos
 
+
+
 📌 Endpoints Principais
 /auth → login, cadastro, refresh
 
 /pratos → listar pratos, criar pedido
 
 /admin → gerenciar cardápio, pedidos, estoque
+
+
 
 🧪 Testes
 Login válido → retorna token
@@ -72,6 +83,8 @@ Estoque insuficiente → erro 409
 
 Pagamento mock → aprovado ou recusado
 
+
+
 🎨 Frontend
 cliente.html → interface para clientes
 
@@ -79,12 +92,16 @@ admin.html → interface para administradores
 
 index.html → página inicial
 
+
+
 🔒 Segurança
 Senhas com bcrypt
 
 Autenticação com JWT
 
 Perfis com roles (cliente/admin)
+
+
 
 📖 Conclusão
 Este projeto entrega uma solução simples e funcional para o restaurante Raízes do Nordeste, com foco em multicanalidade, segurança e fidelização.
