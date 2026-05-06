@@ -1,0 +1,31 @@
+Raizes-do-Nordeste/
+│── backend/
+│   ├── server.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── pratos.js
+│   │   ├── admin.js
+│   ├── models/
+│   │   ├── usuario.js
+│   │   ├── prato.js
+│   │   ├── pedido.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── pratoController.js
+│   │   ├── pedidoController.js
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── jwt.js
+│   └── package.json
+│
+│── frontend/
+│   ├── index.html
+│   ├── cliente.html
+│   ├── admin.html
+│   ├── js/
+│   │   ├── cliente.js
+│   │   ├── admin.js
+│   └── css/
+│       ├── style.css
+│
+│── README.md
